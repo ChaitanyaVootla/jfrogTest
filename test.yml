@@ -93,3 +93,14 @@ pipelines:
             - write_output image_res_jTest imageTag=vootla
         outputResources:
           - image_res_jTest
+      - name: img_read
+        type: bash
+        triggeredBy:
+          steps:
+            - step_jTest
+        execution:
+          onExecute:
+            - printenv
+        triggeredBy:
+          resources:
+            - image_res_jTest
