@@ -82,3 +82,11 @@ pipelines:
           - file_res_jTest
           - stateResource_jTest
           - image_res_jTest
+      - name: img_test_push
+        type: bash
+        triggeredBy:
+          steps:
+            - step_jTest
+        execution:
+          onExecute:
+            - printenv
