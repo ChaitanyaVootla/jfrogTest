@@ -90,7 +90,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - write_output image_res_jTest imageTag=vootla
+            - write_output image_res_jTest imageTag=master
         outputResources:
           - image_res_jTest
       - name: img_read
