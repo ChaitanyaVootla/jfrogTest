@@ -69,12 +69,10 @@ pipelines:
           integrations:
             - docker_chaitanya
           resources:
-            - image_res_jTest
             - stateResource_jTest
         triggeredBy:
           resources:
             - gitrepo_res_jTest
-            - image_res_jTest
             - webhookRes_jTest
             - clusterRes_jTest
         execution:
@@ -83,3 +81,4 @@ pipelines:
         outputResources:
           - file_res_jTest
           - stateResource_jTest
+          - image_res_jTest
