@@ -95,9 +95,6 @@ pipelines:
           - image_res_jTest
       - name: img_read
         type: bash
-        triggeredBy:
-          steps:
-            - step_jTest
         execution:
           onExecute:
             - printenv
