@@ -90,3 +90,5 @@ pipelines:
         execution:
           onExecute:
             - printenv
+        outputResources:
+          - image_res_jTest
