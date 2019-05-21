@@ -28,6 +28,8 @@ resources:
 
   - name: stateResource_jTest
     type: state
+    initialVersion:
+      key: value
 
   - name: webhookRes_jTest
     type: webhook
