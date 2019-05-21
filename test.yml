@@ -1,11 +1,11 @@
 resources:
   - name: gitrepo_res_jTest
     type: gitRepo
-    repoPath: ChaitanyaVootla/newTest
+    repoPath: ChaitanyaVootla/jfrogTest
     configuration:
       integrationName: git_chaitanya
       branches:
-        only: master
+        except: random
     initialVersion:
       sha: master
 
