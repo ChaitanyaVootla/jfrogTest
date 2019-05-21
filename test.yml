@@ -55,18 +55,6 @@ pipelines:
         type: bash
         configuration:
           affinityGroup: test_group
-        setup:
-          runtime:
-            type: image
-            image:
-              auto:
-                language: java
-                versions:
-                  - 1
-            custom:
-              name: test
-              tag:  test
-              options: test
         requires:
           integrations:
             - docker_chaitanya
