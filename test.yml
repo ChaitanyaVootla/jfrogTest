@@ -5,7 +5,7 @@ resources:
     configuration:
       integrationName: git_chaitanya
       branches:
-        except: random
+        only: master
     initialVersion:
       sha: master
 
