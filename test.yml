@@ -83,7 +83,7 @@ pipelines:
             - write_output image_res_jTest "imageTag="$STEP_ID
         outputResources:
           - image_res_jTest
-      - name: img_read
+      - name: img_read_Asdasdasdasdasdasdasdasdasdasdasdasdasdasd
         type: bash
         execution:
           onExecute:
