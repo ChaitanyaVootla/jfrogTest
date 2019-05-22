@@ -47,7 +47,7 @@ resources:
       bastionIntegrationName: sshKeyIntegration
 
 pipelines:
-  - name: jTest_pipeline
+  - name: img_test_pipeline
     setup:
       runtime: onHost
     steps:
@@ -80,7 +80,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - write_output image_res_jTest imageTag=master
+            - write_output image_res_jTest "imageTag="$STEP_ID
         outputResources:
           - image_res_jTest
       - name: img_read
