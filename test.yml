@@ -83,3 +83,47 @@ pipelines:
         requires:
           resources:
             - image_res_jTest
+  - name: overlap_test
+    setup:
+      runtime: onHost
+    steps:
+      - name: over1 
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        requires:
+          integrations:
+            - docker_chaitanya
+        triggeredBy:
+          resources:
+            - gitrepo_res_jTest
+            - webhookRes_jTest
+            - clusterRes_jTest
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res_jTest
+          - image_res_jTest
+      - name: over2_1
+        type: bash
+        triggeredBy:
+          steps:
+            - step_jTest
+        execution:
+          onExecute:
+            - printenv
+            - write_output image_res_jTest "imageTag="$STEP_ID
+        outputResources:
+          - image_res_jTest
+      - name: over2_2
+        type: bash
+        execution:
+          onExecute:
+            - printenv
+        requires:
+          resources:
+            - image_res_jTest
+        triggeredBy:
+          steps:
+            - step_jTest
