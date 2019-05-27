@@ -102,9 +102,6 @@ pipelines:
         execution:
           onExecute:
             - echo "executing..."
-        outputResources:
-          - file_res_jTest
-          - image_res_jTest
       - name: over2_1
         type: bash
         triggeredBy:
