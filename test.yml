@@ -26,11 +26,6 @@ resources:
     initialVersion:
       imageTag: latest
 
-  - name: stateResource_jTest
-    type: state
-    initialVersion:
-      key: value
-
   - name: webhookRes_jTest
     type: webhook
     configuration:
@@ -58,8 +53,6 @@ pipelines:
         requires:
           integrations:
             - docker_chaitanya
-          resources:
-            - stateResource_jTest
         triggeredBy:
           resources:
             - gitrepo_res_jTest
@@ -70,7 +63,6 @@ pipelines:
             - echo "executing..."
         outputResources:
           - file_res_jTest
-          - stateResource_jTest
           - image_res_jTest
       - name: img_test_push
         type: bash
