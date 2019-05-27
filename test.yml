@@ -113,6 +113,14 @@ pipelines:
             - write_output image_res_jTest "imageTag="$STEP_ID
         outputResources:
           - image_res_jTest
+      - name: over2_3
+        type: bash
+        execution:
+          onExecute:
+            - printenv
+        triggeredBy:
+          steps:
+            - over1
       - name: over2_2
         type: bash
         execution:
