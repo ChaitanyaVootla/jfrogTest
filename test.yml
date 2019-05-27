@@ -121,6 +121,22 @@ pipelines:
         triggeredBy:
           steps:
             - over1
+      - name: over2_4
+        type: bash
+        execution:
+          onExecute:
+            - printenv
+        triggeredBy:
+          steps:
+            - over1
+      - name: over2_5
+        type: bash
+        execution:
+          onExecute:
+            - printenv
+        triggeredBy:
+          steps:
+            - over1
       - name: over2_2
         type: bash
         execution:
