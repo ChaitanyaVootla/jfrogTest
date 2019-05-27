@@ -80,6 +80,6 @@ pipelines:
         execution:
           onExecute:
             - printenv
-        triggeredBy:
+        requires:
           resources:
             - image_res_jTest
