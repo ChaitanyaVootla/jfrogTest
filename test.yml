@@ -109,7 +109,7 @@ pipelines:
         type: bash
         triggeredBy:
           steps:
-            - step_jTest
+            - over1
         execution:
           onExecute:
             - printenv
@@ -126,4 +126,4 @@ pipelines:
             - image_res_jTest
         triggeredBy:
           steps:
-            - step_jTest
+            - over1
