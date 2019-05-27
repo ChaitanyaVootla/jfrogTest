@@ -124,3 +124,20 @@ pipelines:
         triggeredBy:
           steps:
             - over1
+          - image_res_jTest
+      - name: over3_1
+        type: bash
+        execution:
+          onExecute:
+            - printenv
+        triggeredBy:
+          steps:
+            - over2_1
+      - name: over3_2
+        type: bash
+        execution:
+          onExecute:
+            - printenv
+        triggeredBy:
+          steps:
+            - over2_1
