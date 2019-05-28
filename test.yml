@@ -86,84 +86,84 @@ pipelines:
         requires:
           resources:
             - image_res_jTest
-  - name: overlap_test
-    setup:
-      runtime: onHost
-    steps:
-      - name: over1 
-        type: bash
-        configuration:
-          affinityGroup: test_group
-        requires:
-          integrations:
-            - docker_chaitanya
-        triggeredBy:
-          resources:
-            - gitrepo_res_jTest
-            - webhookRes_jTest
-            - clusterRes_jTest
-        execution:
-          onExecute:
-            - echo "executing..."
-      - name: over2_1
-        type: bash
-        triggeredBy:
-          steps:
-            - over1
-        execution:
-          onExecute:
-            - printenv
-            - write_output image_res_jTest "imageTag="$STEP_ID
-        outputResources:
-          - image_res_jTest
-      - name: over2_3
-        type: bash
-        execution:
-          onExecute:
-            - printenv
-        triggeredBy:
-          steps:
-            - over1
-      - name: over2_4
-        type: bash
-        execution:
-          onExecute:
-            - printenv
-        triggeredBy:
-          steps:
-            - over1
-      - name: over2_5
-        type: bash
-        execution:
-          onExecute:
-            - printenv
-        triggeredBy:
-          steps:
-            - over1
-      - name: over2_2
-        type: bash
-        execution:
-          onExecute:
-            - printenv
-        requires:
-          resources:
-            - webhookRes_jTest
-        triggeredBy:
-          steps:
-            - over1
-      - name: over3_1
-        type: bash
-        execution:
-          onExecute:
-            - printenv
-        triggeredBy:
-          steps:
-            - over2_1
-      - name: over3_2
-        type: bash
-        execution:
-          onExecute:
-            - printenv
-        triggeredBy:
-          steps:
-            - over2_1
+#   - name: overlap_test
+#     setup:
+#       runtime: onHost
+#     steps:
+#       - name: over1 
+#         type: bash
+#         configuration:
+#           affinityGroup: test_group
+#         requires:
+#           integrations:
+#             - docker_chaitanya
+#         triggeredBy:
+#           resources:
+#             - gitrepo_res_jTest
+#             - webhookRes_jTest
+#             - clusterRes_jTest
+#         execution:
+#           onExecute:
+#             - echo "executing..."
+#       - name: over2_1
+#         type: bash
+#         triggeredBy:
+#           steps:
+#             - over1
+#         execution:
+#           onExecute:
+#             - printenv
+#             - write_output image_res_jTest "imageTag="$STEP_ID
+#         outputResources:
+#           - image_res_jTest
+#       - name: over2_3
+#         type: bash
+#         execution:
+#           onExecute:
+#             - printenv
+#         triggeredBy:
+#           steps:
+#             - over1
+#       - name: over2_4
+#         type: bash
+#         execution:
+#           onExecute:
+#             - printenv
+#         triggeredBy:
+#           steps:
+#             - over1
+#       - name: over2_5
+#         type: bash
+#         execution:
+#           onExecute:
+#             - printenv
+#         triggeredBy:
+#           steps:
+#             - over1
+#       - name: over2_2
+#         type: bash
+#         execution:
+#           onExecute:
+#             - printenv
+#         requires:
+#           resources:
+#             - webhookRes_jTest
+#         triggeredBy:
+#           steps:
+#             - over1
+#       - name: over3_1
+#         type: bash
+#         execution:
+#           onExecute:
+#             - printenv
+#         triggeredBy:
+#           steps:
+#             - over2_1
+#       - name: over3_2
+#         type: bash
+#         execution:
+#           onExecute:
+#             - printenv
+#         triggeredBy:
+#           steps:
+#             - over2_1
