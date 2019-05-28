@@ -6,7 +6,7 @@ resources:
       integrationName: git_chaitanya
       branches:
         except: random
-    initialVersion:
+    version:
       sha: master
 
   - name: file_res_jTest
@@ -15,7 +15,7 @@ resources:
     fileName: shippable.yml
     configuration:
       integrationName: git_chaitanya
-    initialVersion:
+    version:
       fileDtTm: random_value
 
   - name: image_res_jTest
@@ -23,14 +23,14 @@ resources:
     imageName: "library/nginx"
     configuration:
       integrationName: docker_chaitanya
-    initialVersion:
+    version:
       imageTag: latest
 
   - name: webhookRes_jTest
     type: webhook
     configuration:
       integrationName: docker_chaitanya
-    initialVersion:
+    version:
       payload: "asd"
 
   - name: clusterRes_jTest
