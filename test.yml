@@ -86,7 +86,7 @@ pipelines:
         requires:
           resources:
             - image_res_jTest
-      - name: img_readasdww
+      - name: img_read_2
         type: bash
         execution:
           onExecute:
