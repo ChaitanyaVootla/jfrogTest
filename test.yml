@@ -78,7 +78,7 @@ pipelines:
         requires:
           integrations:
             - git_chaitanya
-      - name: img_read21123
+      - name: img_read
         type: bash
         execution:
           onExecute:
