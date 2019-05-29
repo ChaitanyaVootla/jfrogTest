@@ -83,7 +83,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
-        requires:
+        triggeredBy:
           resources:
             - image_res_jTest
 #   - name: overlap_test
