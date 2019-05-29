@@ -86,22 +86,6 @@ pipelines:
         requires:
           resources:
             - image_res_jTest
-      - name: img_read_2
-        type: bash
-        execution:
-          onExecute:
-            - printenv
-        requires:
-          resources:
-            - image_res_jTest
-      - name: img_read_3
-        type: bash
-        execution:
-          onExecute:
-            - printenv
-        requires:
-          resources:
-            - image_res_jTest
 #   - name: overlap_test
 #     setup:
 #       runtime: onHost
