@@ -20,7 +20,7 @@ resources:
 
   - name: image_res_jTest
     type: image
-    imageName: "library/nginx2"
+    imageName: "library/nginx"
     configuration:
       integrationName: docker_chaitanya
     version:
