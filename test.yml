@@ -86,6 +86,20 @@ pipelines:
         triggeredBy:
           resources:
             - image_res_jTest
+  - name: no_res_test
+    setup:
+      runtime: onHost
+    steps:
+      - name: orphan
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        requires:
+          integrations:
+            - docker_chaitanya
+        execution:
+          onExecute:
+            - echo "executing..."
 #   - name: overlap_test
 #     setup:
 #       runtime: onHost
