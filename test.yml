@@ -160,6 +160,16 @@ pipelines:
         triggeredBy:
           resources:
             - image_res_jTest
+      - name: j_9
+        type: bash
+        execution:
+          onExecute:
+            - echo "executing..."
+        triggeredBy:
+          steps:
+            - j_6
+            - j_7
+            - j_8
 #   - name: overlap_test
 #     setup:
 #       runtime: onHost
