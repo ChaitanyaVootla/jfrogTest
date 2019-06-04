@@ -134,6 +134,32 @@ pipelines:
             - j_2
             - j_3
             - j_4
+        outputResources:
+          - image_res_jTest
+      - name: j_6
+        type: bash
+        execution:
+          onExecute:
+            - echo "executing..."
+        triggeredBy:
+          resources:
+            - image_res_jTest
+      - name: j_7
+        type: bash
+        execution:
+          onExecute:
+            - echo "executing..."
+        triggeredBy:
+          resources:
+            - image_res_jTest
+      - name: j_8
+        type: bash
+        execution:
+          onExecute:
+            - echo "executing..."
+        triggeredBy:
+          resources:
+            - image_res_jTest
 #   - name: overlap_test
 #     setup:
 #       runtime: onHost
