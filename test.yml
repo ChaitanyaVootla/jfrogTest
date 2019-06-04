@@ -113,6 +113,32 @@ pipelines:
         triggeredBy:
           steps:
             - j_1
+      - name: j_3
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        requires:
+          integrations:
+            - docker_chaitanya
+        execution:
+          onExecute:
+            - echo "executing..."
+        triggeredBy:
+          steps:
+            - j_1
+      - name: j_4
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        requires:
+          integrations:
+            - docker_chaitanya
+        execution:
+          onExecute:
+            - echo "executing..."
+        triggeredBy:
+          steps:
+            - j_1
 #   - name: overlap_test
 #     setup:
 #       runtime: onHost
