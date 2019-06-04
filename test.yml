@@ -124,6 +124,16 @@ pipelines:
         triggeredBy:
           steps:
             - j_1
+      - name: j_5
+        type: bash
+        execution:
+          onExecute:
+            - echo "executing..."
+        triggeredBy:
+          steps:
+            - j_2
+            - j_3
+            - j_4
 #   - name: overlap_test
 #     setup:
 #       runtime: onHost
