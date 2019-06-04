@@ -102,8 +102,6 @@ pipelines:
             - echo "executing..."
       - name: j_2
         type: bash
-        configuration:
-          affinityGroup: test_group
         execution:
           onExecute:
             - echo "executing..."
@@ -112,8 +110,6 @@ pipelines:
             - j_1
       - name: j_3
         type: bash
-        configuration:
-          affinityGroup: test_group
         execution:
           onExecute:
             - echo "executing..."
@@ -122,8 +118,6 @@ pipelines:
             - j_1
       - name: j_4
         type: bash
-        configuration:
-          affinityGroup: test_group
         execution:
           onExecute:
             - echo "executing..."
