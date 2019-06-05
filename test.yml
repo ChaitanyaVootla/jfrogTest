@@ -78,7 +78,7 @@ pipelines:
         requires:
           integrations:
             - git_chaitanya
-      - name: img_read_1
+      - name: test_3_pm_12569
         type: bash
         execution:
           onExecute:
@@ -86,7 +86,6 @@ pipelines:
         triggeredBy:
           resources:
             - image_res_jTest
-            - gitrepo_res_jTest
   - name: spread_test
     setup:
       runtime: onHost
