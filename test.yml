@@ -86,6 +86,7 @@ pipelines:
         triggeredBy:
           resources:
             - image_res_jTest
+            - gitrepo_res_jTest
   - name: spread_test
     setup:
       runtime: onHost
