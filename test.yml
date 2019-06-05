@@ -78,7 +78,7 @@ pipelines:
         requires:
           integrations:
             - git_chaitanya
-      - name: test_3_pm_12569
+      - name: test_3_pm_1256
         type: bash
         execution:
           onExecute:
