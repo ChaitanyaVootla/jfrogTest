@@ -178,8 +178,7 @@ pipelines:
             onExecute:
               - echo "executing..."
           inputResources:
-            resources:
-              - gitrepo_res_jTest
+            - gitrepo_res_jTest
       - name: T_2
         type: bash
         configuration:
