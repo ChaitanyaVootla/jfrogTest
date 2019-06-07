@@ -170,6 +170,32 @@ pipelines:
             - j_6
             - j_7
             - j_8
+  - name: overlap_test
+    setup:
+      runtime: onHost
+    steps:
+      - name: T_1
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        execution:
+          onExecute:
+            - echo "executing..."
+        triggeredBy:
+          resources:
+            - gitrepo_res_jTest
+      - name: T_2
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        requires:
+          integrations:
+            - docker_chaitanya
+          resources:
+            - gitrepo_res_jTest
+        execution:
+          onExecute:
+            - echo "executing..."
 #   - name: overlap_test
 #     setup:
 #       runtime: onHost
