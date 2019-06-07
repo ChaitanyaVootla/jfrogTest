@@ -1,13 +1,11 @@
 resources:
   - name: gitrepo_res_jTest
-    type: gitRepo
+    type: GitRepo
     repoPath: ChaitanyaVootla/jfrogTest
     configuration:
       integrationName: git_chaitanya
       branches:
         except: random
-    version:
-      sha: master
 
   - name: file_res_jTest
     type: file
