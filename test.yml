@@ -174,24 +174,24 @@ pipelines:
         type: bash
         configuration:
           affinityGroup: test_group
-        execution:
-          onExecute:
-            - echo "executing..."
-        triggeredBy:
-          resources:
-            - gitrepo_res_jTest
+          execution:
+            onExecute:
+              - echo "executing..."
+          triggeredBy:
+            resources:
+              - gitrepo_res_jTest
       - name: T_2
         type: bash
         configuration:
           affinityGroup: test_group
-        requires:
-          integrations:
-            - docker_chaitanya
-          resources:
-            - gitrepo_res_jTest
-        execution:
-          onExecute:
-            - echo "executing..."
+          requires:
+            integrations:
+              - docker_chaitanya
+            resources:
+              - gitrepo_res_jTest
+          execution:
+            onExecute:
+              - echo "executing..."
 #   - name: overlap_test
 #     setup:
 #       runtime: onHost
