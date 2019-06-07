@@ -177,18 +177,17 @@ pipelines:
           execution:
             onExecute:
               - echo "executing..."
-          triggeredBy:
+          inputResources:
             resources:
               - gitrepo_res_jTest
       - name: T_2
         type: bash
         configuration:
           affinityGroup: test_group
-          requires:
-            integrations:
-              - docker_chaitanya
-            resources:
-              - gitrepo_res_jTest
+          inputResources:
+            - gitrepo_res_jTest
+          integrations:
+            - docker_chaitanya
           execution:
             onExecute:
               - echo "executing..."
