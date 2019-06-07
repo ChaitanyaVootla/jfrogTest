@@ -5,167 +5,167 @@ resources:
       gitProvider: git_chaitanya
       path: ChaitanyaVootla/jfrogTest
 
-  - name: file_res_jTest
-    type: file
-    fileLocation: https://raw.githubusercontent.com/ChaitanyaVootla/jfrogTest/master/test.yml
-    fileName: shippable.yml
-    configuration:
-      integrationName: git_chaitanya
-    version:
-      fileDtTm: random_value
+#   - name: file_res_jTest
+#     type: file
+#     fileLocation: https://raw.githubusercontent.com/ChaitanyaVootla/jfrogTest/master/test.yml
+#     fileName: shippable.yml
+#     configuration:
+#       integrationName: git_chaitanya
+#     version:
+#       fileDtTm: random_value
 
-  - name: image_res_jTest
-    type: image
-    imageName: "library/nginx"
-    configuration:
-      integrationName: docker_chaitanya
-    version:
-      imageTag: latest
+#   - name: image_res_jTest
+#     type: image
+#     imageName: "library/nginx"
+#     configuration:
+#       integrationName: docker_chaitanya
+#     version:
+#       imageTag: latest
 
-  - name: webhookRes_jTest
-    type: webhook
-    configuration:
-      integrationName: docker_chaitanya
-    version:
-      payload: "asd"
+#   - name: webhookRes_jTest
+#     type: webhook
+#     configuration:
+#       integrationName: docker_chaitanya
+#     version:
+#       payload: "asd"
 
-  - name: clusterRes_jTest
-    type: cluster
-    configuration:
-      integrationName: docker_chaitanya
-      bastionHostIP: 1.2.3.4
-      bastionUser: sshUser
-      bastionIntegrationName: sshKeyIntegration
+#   - name: clusterRes_jTest
+#     type: cluster
+#     configuration:
+#       integrationName: docker_chaitanya
+#       bastionHostIP: 1.2.3.4
+#       bastionUser: sshUser
+#       bastionIntegrationName: sshKeyIntegration
 
 pipelines:
-  - name: img_test_pipeline
-    setup:
-      runtime: onHost
-    steps:
-      - name: step_jTest
-        type: bash
-        configuration:
-          affinityGroup: test_group
-        requires:
-          integrations:
-            - docker_chaitanya
-        triggeredBy:
-          resources:
-            - gitrepo_res_jTest
-            - webhookRes_jTest
-            - clusterRes_jTest
-        execution:
-          onExecute:
-            - echo "executing..."
-        outputResources:
-          - file_res_jTest
-          - image_res_jTest
-      - name: img_test_push
-        type: bash
-        triggeredBy:
-          steps:
-            - step_jTest
-        execution:
-          onExecute:
-            - printenv
-            - write_output image_res_jTest "imageTag="$STEP_ID
-        outputResources:
-          - image_res_jTest
-        requires:
-          integrations:
-            - git_chaitanya
-      - name: test_3_pm_12561
-        type: bash
-        execution:
-          onExecute:
-            - printenv
-        triggeredBy:
-          resources:
-            - image_res_jTest
-  - name: spread_test
-    setup:
-      runtime: onHost
-    steps:
-      - name: j_1
-        type: bash
-        configuration:
-          affinityGroup: test_group
-        requires:
-          integrations:
-            - docker_chaitanya
-        execution:
-          onExecute:
-            - echo "executing..."
-      - name: j_2
-        type: bash
-        execution:
-          onExecute:
-            - echo "executing..."
-        triggeredBy:
-          steps:
-            - j_1
-      - name: j_3
-        type: bash
-        execution:
-          onExecute:
-            - echo "executing..."
-        triggeredBy:
-          steps:
-            - j_1
-      - name: j_4
-        type: bash
-        execution:
-          onExecute:
-            - echo "executing..."
-        triggeredBy:
-          steps:
-            - j_1
-      - name: j_5
-        type: bash
-        execution:
-          onExecute:
-            - echo "executing..."
-        triggeredBy:
-          steps:
-            - j_2
-            - j_3
-            - j_4
-        outputResources:
-          - image_res_jTest
-      - name: j_6
-        type: bash
-        execution:
-          onExecute:
-            - echo "executing..."
-        triggeredBy:
-          resources:
-            - image_res_jTest
-      - name: j_7
-        type: bash
-        execution:
-          onExecute:
-            - echo "executing..."
-        triggeredBy:
-          resources:
-            - image_res_jTest
-      - name: j_8
-        type: bash
-        execution:
-          onExecute:
-            - echo "executing..."
-        triggeredBy:
-          resources:
-            - image_res_jTest
-      - name: j_9
-        type: bash
-        execution:
-          onExecute:
-            - echo "executing..."
-        triggeredBy:
-          steps:
-            - j_6
-            - j_7
-            - j_8
+#   - name: img_test_pipeline
+#     setup:
+#       runtime: onHost
+#     steps:
+#       - name: step_jTest
+#         type: bash
+#         configuration:
+#           affinityGroup: test_group
+#         requires:
+#           integrations:
+#             - docker_chaitanya
+#         triggeredBy:
+#           resources:
+#             - gitrepo_res_jTest
+#             - webhookRes_jTest
+#             - clusterRes_jTest
+#         execution:
+#           onExecute:
+#             - echo "executing..."
+#         outputResources:
+#           - file_res_jTest
+#           - image_res_jTest
+#       - name: img_test_push
+#         type: bash
+#         triggeredBy:
+#           steps:
+#             - step_jTest
+#         execution:
+#           onExecute:
+#             - printenv
+#             - write_output image_res_jTest "imageTag="$STEP_ID
+#         outputResources:
+#           - image_res_jTest
+#         requires:
+#           integrations:
+#             - git_chaitanya
+#       - name: test_3_pm_12561
+#         type: bash
+#         execution:
+#           onExecute:
+#             - printenv
+#         triggeredBy:
+#           resources:
+#             - image_res_jTest
+#   - name: spread_test
+#     setup:
+#       runtime: onHost
+#     steps:
+#       - name: j_1
+#         type: bash
+#         configuration:
+#           affinityGroup: test_group
+#         requires:
+#           integrations:
+#             - docker_chaitanya
+#         execution:
+#           onExecute:
+#             - echo "executing..."
+#       - name: j_2
+#         type: bash
+#         execution:
+#           onExecute:
+#             - echo "executing..."
+#         triggeredBy:
+#           steps:
+#             - j_1
+#       - name: j_3
+#         type: bash
+#         execution:
+#           onExecute:
+#             - echo "executing..."
+#         triggeredBy:
+#           steps:
+#             - j_1
+#       - name: j_4
+#         type: bash
+#         execution:
+#           onExecute:
+#             - echo "executing..."
+#         triggeredBy:
+#           steps:
+#             - j_1
+#       - name: j_5
+#         type: bash
+#         execution:
+#           onExecute:
+#             - echo "executing..."
+#         triggeredBy:
+#           steps:
+#             - j_2
+#             - j_3
+#             - j_4
+#         outputResources:
+#           - image_res_jTest
+#       - name: j_6
+#         type: bash
+#         execution:
+#           onExecute:
+#             - echo "executing..."
+#         triggeredBy:
+#           resources:
+#             - image_res_jTest
+#       - name: j_7
+#         type: bash
+#         execution:
+#           onExecute:
+#             - echo "executing..."
+#         triggeredBy:
+#           resources:
+#             - image_res_jTest
+#       - name: j_8
+#         type: bash
+#         execution:
+#           onExecute:
+#             - echo "executing..."
+#         triggeredBy:
+#           resources:
+#             - image_res_jTest
+#       - name: j_9
+#         type: bash
+#         execution:
+#           onExecute:
+#             - echo "executing..."
+#         triggeredBy:
+#           steps:
+#             - j_6
+#             - j_7
+#             - j_8
   - name: overlap_test
     setup:
       runtime: onHost
